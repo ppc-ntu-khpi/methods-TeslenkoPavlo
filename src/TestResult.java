@@ -1,12 +1,35 @@
-//package test;
-
-//import domain.Exercise;
+/**
+ * Клас для тестування функціоналу перевірки паліндромів.
+ * Зчитує введення користувача та виводить результат перевірки.
+ */
+import java.util.Scanner;
 
 public class TestResult {
-
+    /**
+     * Головний метод програми.
+     * Зчитує вхідний рядок з клавіатури та перевіряє, чи є він паліндромом.
+     */
     public static void main(String[] args) {
+        // Створюємо об'єкт Scanner для зчитування даних з консолі
+        Scanner scanner = new Scanner(System.in, "UTF-8");
 
-        int R=10;
-        System.out.println("Area of a circle for R="+R+"m is "+Exercise.Calculate(R)+"m"+'\u00B2');
+        // Виводимо повідомлення з проханням ввести слово або фразу для перевірки
+        System.out.print("Введіть число, слово або фразу для перевірки: ");
+
+        // Зчитуємо рядок, введений користувачем
+        String word = scanner.nextLine();
+
+        // Викликаємо метод isPalindrome класу Exercise для перевірки введеного рядка
+        boolean isPalindrome = Exercise.isPalindrome(word);
+
+        // Формуємо і виводимо повідомлення з результатом перевірки:
+        // Якщо isPalindrome == true, виводимо, що рядок є паліндромом,
+        // інакше - що він не є паліндромом.
+        System.out.println("\"" + word + "\" - " + (isPalindrome ? "є паліндромом" : "не є паліндромом"));
+
+        // Закриваємо Scanner для звільнення ресурсів
+        scanner.close();
     }
 }
+
+
